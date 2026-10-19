@@ -19,7 +19,7 @@ This repo holds release binaries only.
 curl -fsSL https://raw.githubusercontent.com/Stjerna/canvas-review/main/install.sh | sh
 ```
 
-**Windows** (PowerShell)
+**Windows** (PowerShell, not tested)
 
 ```powershell
 irm https://raw.githubusercontent.com/Stjerna/canvas-review/main/install.ps1 | iex

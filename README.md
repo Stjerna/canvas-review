@@ -13,43 +13,52 @@ This repo holds release binaries only.
 
 ## Install
 
+**Linux and macOS**
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/Stjerna/canvas-review/main/install.sh | sh
+```
+
+**Windows** (PowerShell)
+
+```powershell
+irm https://raw.githubusercontent.com/Stjerna/canvas-review/main/install.ps1 | iex
+```
+
+The script picks the right build for your system, checks it against
+`SHA256SUMS`, and installs it without needing admin rights:
+
+- Linux and macOS: `~/.local/bin`
+- Windows: `%LOCALAPPDATA%\Programs\canvas-review`, added to your `PATH`
+
+Run it again to update. To pick a version or folder, set
+`CANVAS_REVIEW_VERSION` (like `v0.1.0`) or `CANVAS_REVIEW_INSTALL_DIR`
+first:
+
+```sh
+curl -fsSL https://raw.githubusercontent.com/Stjerna/canvas-review/main/install.sh | CANVAS_REVIEW_VERSION=v0.1.0 sh
+```
+
+You can read [install.sh](install.sh) and [install.ps1](install.ps1)
+before running them.
+
+**By hand**
+
 Download the file for your system from
 [Releases](https://github.com/Stjerna/canvas-review/releases/latest),
 unpack it, and put `canvas-review` somewhere on your `PATH`.
 
-**Linux (x86_64)**
-
-```sh
-curl -L https://github.com/Stjerna/canvas-review/releases/latest/download/canvas-review-x86_64-unknown-linux-gnu.tar.gz | tar xz
-sudo mv canvas-review /usr/local/bin/
-```
-
-**macOS (Apple Silicon)**
-
-```sh
-curl -L https://github.com/Stjerna/canvas-review/releases/latest/download/canvas-review-aarch64-apple-darwin.tar.gz | tar xz
-sudo mv canvas-review /usr/local/bin/
-```
-
-For Intel Macs, use `canvas-review-x86_64-apple-darwin.tar.gz`.
+| System | File |
+|---|---|
+| Linux x86_64 | `canvas-review-x86_64-unknown-linux-gnu.tar.gz` |
+| macOS Apple Silicon | `canvas-review-aarch64-apple-darwin.tar.gz` |
+| macOS Intel | `canvas-review-x86_64-apple-darwin.tar.gz` |
+| Windows x86_64 | `canvas-review-x86_64-pc-windows-msvc.zip` |
 
 The binary isn't signed. If macOS blocks it, run:
 
 ```sh
-xattr -d com.apple.quarantine /usr/local/bin/canvas-review
-```
-
-**Windows (x86_64)**
-
-Download `canvas-review-x86_64-pc-windows-msvc.zip`, unzip it, and put
-`canvas-review.exe` in a folder on your `PATH`.
-
-**Check the download (optional)**
-
-Each release has a `SHA256SUMS` file:
-
-```sh
-sha256sum -c SHA256SUMS --ignore-missing
+xattr -d com.apple.quarantine /path/to/canvas-review
 ```
 
 ## Use

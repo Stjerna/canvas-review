@@ -6,6 +6,9 @@
 #   CANVAS_REVIEW_VERSION      a release tag like v0.1.0 (default: latest)
 #   CANVAS_REVIEW_INSTALL_DIR  where to put the binary
 #                              (default: %LOCALAPPDATA%\Programs\canvas-review)
+#   CANVAS_REVIEW_NO_UPDATE    set to 1 to turn off self-updates
+#
+# canvas-review updates itself once a day. Pinning a version turns that off.
 
 $ErrorActionPreference = 'Stop'
 # Windows PowerShell 5.1 needs TLS 1.2 turned on, and its progress bar
@@ -60,6 +63,18 @@ try {
 }
 
 Write-Host "Installed $(& $exe --version) to $exe"
+
+# The binary skips its daily update check while this file exists.
+$config = Join-Path $env:APPDATA 'canvas-review'
+$noUpdate = Join-Path $config 'no-update'
+if ($version -ne 'latest' -or ($env:CANVAS_REVIEW_NO_UPDATE -and $env:CANVAS_REVIEW_NO_UPDATE -ne '0')) {
+    New-Item -ItemType Directory -Force -Path $config | Out-Null
+    New-Item -ItemType File -Force -Path $noUpdate | Out-Null
+    Write-Host 'Self-updates are off. Run this script again without options to turn them on.'
+} else {
+    Remove-Item -Force -ErrorAction SilentlyContinue $noUpdate
+    Write-Host 'canvas-review updates itself once a day.'
+}
 
 $userPath = [Environment]::GetEnvironmentVariable('Path', 'User')
 if (($userPath -split ';') -notcontains $dir) {

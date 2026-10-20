@@ -6,12 +6,17 @@
 # Options, set as environment variables:
 #   CANVAS_REVIEW_VERSION      a release tag like v0.1.0 (default: latest)
 #   CANVAS_REVIEW_INSTALL_DIR  where to put the binary (default: ~/.local/bin)
+#   CANVAS_REVIEW_NO_UPDATE    set to 1 to turn off self-updates
+#
+# canvas-review updates itself once a day. Pinning a version turns that off.
 
 set -eu
 
 repo=Stjerna/canvas-review
 version=${CANVAS_REVIEW_VERSION:-latest}
 dir=${CANVAS_REVIEW_INSTALL_DIR:-$HOME/.local/bin}
+no_update=${CANVAS_REVIEW_NO_UPDATE:-}
+config=${XDG_CONFIG_HOME:-$HOME/.config}/canvas-review
 
 fail() {
   printf 'error: %s\n' "$*" >&2
@@ -92,6 +97,16 @@ if [ "$os" = apple-darwin ]; then
 fi
 
 printf 'Installed %s to %s\n' "$("$dir/canvas-review" --version)" "$dir/canvas-review"
+
+# The binary skips its daily update check while this file exists.
+if [ "$version" != latest ] || { [ -n "$no_update" ] && [ "$no_update" != 0 ]; }; then
+  mkdir -p "$config"
+  : > "$config/no-update"
+  printf 'Self-updates are off. Run this script again without options to turn them on.\n'
+else
+  rm -f "$config/no-update"
+  printf 'canvas-review updates itself once a day.\n'
+fi
 
 case ":$PATH:" in
   *":$dir:"*) ;;

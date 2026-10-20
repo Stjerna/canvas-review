@@ -31,9 +31,16 @@ The script picks the right build for your system, checks it against
 - Linux and macOS: `~/.local/bin`
 - Windows: `%LOCALAPPDATA%\Programs\canvas-review`, added to your `PATH`
 
-Run it again to update. To pick a version or folder, set
-`CANVAS_REVIEW_VERSION` (like `v0.1.0`) or `CANVAS_REVIEW_INSTALL_DIR`
-first:
+**Updates.** canvas-review updates itself. Once a day it checks for a
+new release in the background. If there is one, it downloads it, checks it
+against `SHA256SUMS`, and uses it the next time you run it.
+
+To turn this off, install with `CANVAS_REVIEW_NO_UPDATE=1`, or set
+`CANVAS_REVIEW_NO_UPDATE=1` in your shell. Pinning a version turns it off
+too. Run the script again without options to turn it back on.
+
+To pick a version or folder, set `CANVAS_REVIEW_VERSION` (like `v0.1.0`)
+or `CANVAS_REVIEW_INSTALL_DIR` first:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/Stjerna/canvas-review/main/install.sh | CANVAS_REVIEW_VERSION=v0.1.0 sh

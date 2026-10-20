@@ -5,13 +5,26 @@
 ## Open another repo
 
 Click the repo name at the top left, press **O**, or pick **Open another
-repo** in the menu. Pick a recent repo, or browse your folders. Repos are
-shown in bold.
+repo** in the menu. Pick one of your last 5 repos, or browse your
+folders. Repos are shown in bold. Double-click a repo to open it right
+away.
 
-- **Open here** swaps the repo in this tab.
-- **Open in new tab** keeps this one too. Both tabs run at the same time,
-  each with its own live mode and language servers.
-- **Add to this canvas** shows the repo next to the ones open now.
+## Pick several repos
+
+Click like in a file manager:
+
+- Click picks one repo.
+- Ctrl+click (Cmd+click on macOS) adds or drops one repo.
+- Shift+click picks every repo from your last click to this one.
+
+Then:
+
+- **Open here** swaps the repo in this tab. With several picked, it opens
+  them together on one canvas.
+- **Open in new tab** keeps this one too. Each tab runs at the same time,
+  with its own live mode and language servers. If the browser blocks some
+  tabs, the picker says so and stays open.
+- **Add to this canvas** shows the picked repos next to the ones open now.
 
 ## Several repos on one canvas
 

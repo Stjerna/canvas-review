@@ -7,6 +7,7 @@ in your browser. Made for reviewing work done by coding agents.
 - An arrow from A to B means A uses names that B defines.
 - Click a file to see its changed functions and types, its links, and its diff.
 - Files are numbered in reading order, so you meet the building blocks first.
+- Filters narrow the canvas: by folder, language, impact, unused code and more.
 - Live mode follows along while an agent works.
 - Put several repos on one canvas, when one change spans services.
 
@@ -47,6 +48,7 @@ last commit.
 - [Usage](docs/usage.md): ranges, flags, keyboard shortcuts
 - [Reviewing a change](docs/reviewing.md): the canvas, reading order,
   functions, live mode
+- [Filters](docs/filters.md): narrow the canvas to the files you care about
 - [Several repos](docs/multiple-repos.md): other repos, and several on one canvas
 - [Language servers](docs/language-servers.md): better links
 

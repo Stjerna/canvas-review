@@ -9,11 +9,15 @@
 - Click a file to see its changed functions and types, its links, and its
   diff.
 - Dashed cards are files outside the diff that use changed code. Click
-  one to see the code around each use. Toggle them with **Outside users**.
-  If there are more than 30, they start hidden.
+  one to see the code around each use. Toggle them with **Outside users**
+  in the [filters](filters.md). If there are more than 30, they start
+  hidden.
 - Lock files and other generated files are hidden. Show them with
-  **Generated**. Mark your own with `linguist-generated` in
-  `.gitattributes`.
+  **Generated** in the [filters](filters.md). Mark your own with
+  `linguist-generated` in `.gitattributes`.
+
+To see only some files, like one folder or the files near one file, use
+the [filters](filters.md).
 
 Links are first found by matching names, which can be wrong. These are
 drawn **dashed**. Install a [language server](language-servers.md) to
@@ -44,7 +48,7 @@ Click the **▸ 3** button on a file card to show its changed functions,
 classes and other symbols inside it. Links then run between functions,
 not whole files.
 
-- **Functions** in the top bar opens or closes every file.
+- **Functions** in the [filters](filters.md) opens or closes every file.
 - Click a function to jump to it in the diff.
 
 ## Jump along links

@@ -32,15 +32,20 @@ uncommitted changes.
 - Click a branch name to see its work since it split off from `main`.
 - Click **Uncommitted changes** at the top for work not committed yet.
 - Tick **Remote branches** to show branches like `origin/main` too.
-- Or type any two refs at the bottom.
+
+To compare any two refs, use `--from A --to B` on the command line.
 
 The range is kept in the page URL, so Back, Forward and reload work.
+
+Drag the right edge of the branch graph to make it wider or narrower. Or
+click the edge and use the arrow keys. Double-click the edge to reset it.
 
 ## Keyboard shortcuts
 
 | Key | Does |
 |---|---|
 | **G** | Pick a range |
+| **F** | Open or close the [filters](filters.md) |
 | **N** / **P** | Next / previous file in reading order |
 | **R** | Mark the open file reviewed |
 | **Esc** | Close the open file |

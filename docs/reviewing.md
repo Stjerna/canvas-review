@@ -59,12 +59,11 @@ The code shows at the top of the panel, with a **Back** button.
 
 ## Step through commits
 
-When a range has more than one commit, a bar under the top bar replays
-them in order. Each step shows the range up to that commit, and the files
+When a range has more than one commit, a bar under the top bar lets you
+walk them in order. Each step shows the range up to that commit, and the files
 it touched glow.
 
-- Use **▶ Play**, the **◀ ▶** buttons, the dots, or the **[** and **]**
-  keys.
+- Use the **◀ ▶** buttons, the dots, or the **[** and **]** keys.
 - **All N commits** goes back to the whole range.
 
 Language servers don't check links while stepping, since they read the

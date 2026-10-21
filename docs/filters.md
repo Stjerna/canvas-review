@@ -5,6 +5,8 @@
 Filters narrow the canvas to the files you care about. Click **Filters**
 in the top bar, or press **F**, to open the panel on the right.
 
+![The filter panel on the right of the canvas](images/filters.png)
+
 ## Fade or hide
 
 - **Fade** keeps filtered-out files in place, faded.

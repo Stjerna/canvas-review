@@ -32,6 +32,17 @@ Useful when one change spans services, like a frontend, a BFF and a core
 service. Add a repo with **+ Add repo** in the top bar, or **Add to this
 canvas** in the repo picker.
 
+![Two repos on one canvas, each in its own colored box](images/several-repos.png)
+
+From the terminal, repeat `-r`:
+
+```sh
+canvas-review -u -r ../frontend -r ../core
+```
+
+A range flag, like `-u`, applies to every repo. With no range flag, each
+repo opens on its own likely range.
+
 Each repo gets its own box on the canvas, and a chip in the top bar, in
 the same color.
 

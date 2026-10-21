@@ -13,7 +13,12 @@ canvas-review -l 3       # last 3 commits, bundled
 canvas-review -b main    # current branch vs main
 canvas-review --from A --to B
 canvas-review -r ../other-repo   # a repo other than the one you are in
+canvas-review -u -r ../web -r ../api   # several repos on one canvas
 ```
+
+Repeat `-r` to open [several repos](multiple-repos.md) on one canvas. A
+range flag, like `-u`, then applies to each repo. A bad repo or ref stops
+it right away.
 
 With no range flag it opens on uncommitted changes. If there are none, it
 shows your branch's work since it left `main`, else the last commit.
@@ -21,6 +26,8 @@ shows your branch's work since it left `main`, else the last commit.
 Outside a git repo, it opens on a repo picker instead.
 
 ## Pick a range in the browser
+
+![The branch graph: pick a commit, a span of commits, or a branch](images/branch-graph.png)
 
 Click the branch icon at the top left, or press **G**. It opens a branch
 graph, like `git log --graph`. An orange dot on the icon means there are
@@ -31,7 +38,8 @@ uncommitted changes.
   different branches are compared directly.
 - Click a branch name to see its work since it split off from `main`.
 - Click **Uncommitted changes** at the top for work not committed yet.
-- Tick **Remote branches** to show branches like `origin/main` too.
+- Branches like `origin/main` show too. Untick **Remote branches** to
+  hide them.
 
 To compare any two refs, use `--from A --to B` on the command line.
 
@@ -40,23 +48,55 @@ The range is kept in the page URL, so Back, Forward and reload work.
 Drag the right edge of the branch graph to make it wider or narrower. Or
 click the edge and use the arrow keys. Double-click the edge to reset it.
 
+The **Git** button at the top of the branch graph fetches, pulls, pushes
+and commits. See [Git](git.md).
+
 ## Keyboard shortcuts
 
 | Key | Does |
 |---|---|
 | **G** | Pick a range |
-| **F** | Open or close the [filters](filters.md) |
-| **N** / **P** | Next / previous file in reading order |
-| **R** | Mark the open file reviewed |
-| **Esc** | Close the open file |
-| **[** / **]** | Step through the commits in a range |
 | **O** | Open or add another repo |
+| **N** / **P** | Next / previous file in reading order |
+| **R** | Mark the open file reviewed, or not |
+| **W** | Switch between the diff and the whole file |
+| **J** / **K** | Scroll the open file down / up (or **↓** / **↑**) |
+| **E** | Open the open file in your editor |
+| **F** | Open or close the [filters](filters.md) |
+| **H** | Open or close the live history |
+| **[** / **]** | Step through the commits in a range |
+| **Esc** | Close the open file, drawer or dialog |
 | **?** | Show all shortcuts |
 
 ## Menu
 
-The **☰** button at the top right has **Refresh**, **Open another repo**
-and **Keyboard shortcuts**.
+The **☰** button at the top right has **Refresh**, **Open another
+repo**, **Editor** and **Keyboard shortcuts**. **Editor** picks the
+editor that [Open in editor](reviewing.md#open-in-your-editor) uses.
+
+## Open it from an agent
+
+You can ask a coding agent to open the canvas for you. For example, once
+you and the agent agree on a plan, say: "Open canvas-review on all the
+repos we will change." Then you watch its edits arrive live.
+
+The agent can work out how from `canvas-review --help`. What it needs to
+know:
+
+- Name each repo with `-r`. All of them go on one canvas.
+- Use `-u`, uncommitted changes, to follow edits as they happen.
+- Start it in the background. It runs until Ctrl+C, and never exits by
+  itself.
+- It opens the browser tab itself. Run it once; live mode does the rest.
+
+```sh
+canvas-review -u -r ../frontend -r ../bff -r ../core-service
+```
+
+The tab says **No changes yet** until the first edit lands.
+
+Commits leave the uncommitted range. If the agent commits as it goes,
+press **G** to pick those commits.
 
 ## Stop it
 

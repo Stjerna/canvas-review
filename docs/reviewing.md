@@ -19,8 +19,21 @@ the [filters](filters.md).
 
 Supported languages, with colors and links: Rust, Python, JavaScript,
 TypeScript, Go, Java, C, C++, Ruby, C#, PHP, Kotlin, Swift, Scala, Lua,
-Bash, Elixir, Zig and Haskell. CSS, HTML and JSON get colors only. Other
-files still show up, without colors or links.
+Bash, Elixir, Zig, Haskell and HCL (including Terraform and OpenTofu).
+CSS, HTML and JSON get colors only. Other files still show up, without
+colors or links.
+
+Drag a card to move it. When you let go, its links redraw around the
+other cards.
+
+## Find a file
+
+![Find a file: type part of its name, and pick it from the list](images/find.png)
+
+Press **/** or click **Find** in the top bar, then type part of a file's
+name. The letters only need to be in order, so `rpk` finds
+`RepoPicker.tsx`. Use **↓** and **↑** to move, and **Enter** to open the
+file.
 
 ### Reading a card
 
@@ -82,7 +95,10 @@ are more than 30, they start hidden.
 
 ![A file's panel: changed symbols, uses and used by, and the diff](images/file-panel.png)
 
-Click a card to open its panel on the right.
+Click a card to open its panel on the right. Its title is the file name,
+with the folder below it. Lists like **Used by** show just file names.
+When two files share a name, enough of the folder shows to tell them
+apart. Hover a name to see the full path.
 
 - **Changed symbols:** the functions, types and other names that changed.
   **+** is added, **~** changed, **−** removed. Click one to jump to it
@@ -104,7 +120,13 @@ line, with the changes marked in place. Click **Changes** to go back to
 just the diff. Your pick stays as you move between files.
 
 Scroll the code with **J** or **↓** to go down, and **K** or **↑** to go
-up.
+up. Scroll wide lines with **H** or **←** to go left, and **L** or **→**
+to go right.
+
+### Move to a nearby file
+
+With a file open, press **Shift** with **H**, **J**, **K** or **L**, or
+with an arrow. It opens the nearest file box that way on the canvas.
 
 ### Jump along links
 
@@ -204,7 +226,7 @@ fills in as soon as files change.
 ![The live history panel: each update with its time and files](images/live-history.png)
 
 The note goes away after a few seconds. To look back, click **History**
-in the top bar or in the note, or press **H**.
+in the top bar or in the note, or press **U**.
 
 - Each live update is listed, newest first, with its time.
 - It shows which files were new, changed, or no longer changed.

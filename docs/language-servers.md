@@ -41,6 +41,10 @@ install a missing one.
 | Elixir | expert, elixir-ls, lexical or nextls | github.com/elixir-lang/expert |
 | Zig | zls | your package manager |
 | Haskell | haskell-language-server | `ghcup install hls` |
+| HCL (Terraform, OpenTofu) | terraform-ls or tofu-ls | your package manager or releases.hashicorp.com |
+
+Other HCL files, like Packer or Nomad files, keep their name links: the
+servers only read Terraform and OpenTofu files.
 
 ## Limits
 

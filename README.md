@@ -13,7 +13,13 @@ in your browser. Made for reviewing work done by coding agents.
 - Filters narrow the canvas: by folder, language, impact, unused code and more.
 - Live mode follows along while an agent works.
 - Put several repos on one canvas, when one change spans services.
+- See the worktrees your agents work in, side by side.
+- Find a file on the canvas by typing part of its name.
 - Open a file in your editor, and commit or discard without leaving the page.
+
+It follows your system's light or dark mode.
+
+![The same canvas in light mode on the left and dark mode on the right](docs/images/light-dark.png)
 
 This repo holds release binaries and docs only.
 
@@ -42,9 +48,9 @@ Run it inside a git repo:
 canvas-review
 ```
 
-It opens the canvas in your browser, on your uncommitted changes. If
-there are none, on your branch's work since it left `main`, else on the
-last commit.
+It opens the canvas in your browser, on your uncommitted changes, even
+when there are none yet. That way an agent's edits show up live. Use
+`-b main` for your branch's work, or `-l 1` for the last commit.
 
 ## Docs
 
@@ -53,7 +59,8 @@ last commit.
 - [Reviewing a change](docs/reviewing.md): the canvas, what the links
   mean, a file's panel, reading order, live mode
 - [Filters](docs/filters.md): narrow the canvas to the files you care about
-- [Several repos](docs/multiple-repos.md): other repos, and several on one canvas
+- [Several repos](docs/multiple-repos.md): other repos, several on one
+  canvas, and worktrees
 - [Git](docs/git.md): fetch, pull, push, commit and discard
 - [Language servers](docs/language-servers.md): better links
 

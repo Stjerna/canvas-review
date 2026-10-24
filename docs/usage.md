@@ -20,8 +20,11 @@ Repeat `-r` to open [several repos](multiple-repos.md) on one canvas. A
 range flag, like `-u`, then applies to each repo. A bad repo or ref stops
 it right away.
 
-With no range flag it opens on uncommitted changes. If there are none, it
-shows your branch's work since it left `main`, else the last commit.
+With no range flag it opens on uncommitted changes, even when there are
+none yet. That way an agent's edits show up live, in every repo. Repos
+you open from the browser get a likely range instead: uncommitted
+changes, else your branch's work since it left `main`, else the last
+commit.
 
 Outside a git repo, it opens on a repo picker instead.
 
@@ -43,6 +46,27 @@ uncommitted changes.
 
 To compare any two refs, use `--from A --to B` on the command line.
 
+The link at the top of the branch graph opens the repo on the web, like
+`github.com/owner/repo`.
+
+### Pull requests
+
+The **Pull requests** tab lists the open pull requests on GitHub.
+
+- Type to filter them.
+- Click one to see its changes: from where it split off its base to its
+  last commit. Pull requests from forks work too.
+- **↗** opens it on the web.
+
+It needs the [GitHub CLI](https://cli.github.com) (`gh`), logged in.
+
+### Worktrees
+
+The **Worktrees** tab lists the repo's worktrees, like the ones agents
+make in `.claude/worktrees/`. Pick them like repos, to open here, in new
+tabs, or next to each other on the canvas. See
+[Worktrees](multiple-repos.md#worktrees).
+
 The range is kept in the page URL, so Back, Forward and reload work.
 
 Drag the right edge of the branch graph to make it wider or narrower. Or
@@ -57,13 +81,16 @@ and commits. See [Git](git.md).
 |---|---|
 | **G** | Pick a range |
 | **O** | Open or add another repo |
+| **/** | [Find a file](reviewing.md#find-a-file) on the canvas |
 | **N** / **P** | Next / previous file in reading order |
 | **R** | Mark the open file reviewed, or not |
 | **W** | Switch between the diff and the whole file |
 | **J** / **K** | Scroll the open file down / up (or **↓** / **↑**) |
+| **H** / **L** | Scroll the open file left / right (or **←** / **→**) |
+| **Shift** + **H J K L** | Open the nearest file box that way (or **Shift** + an arrow) |
 | **E** | Open the open file in your editor |
 | **F** | Open or close the [filters](filters.md) |
-| **H** | Open or close the live history |
+| **U** | Open or close the live history |
 | **[** / **]** | Step through the commits in a range |
 | **Esc** | Close the open file, drawer or dialog |
 | **?** | Show all shortcuts |
